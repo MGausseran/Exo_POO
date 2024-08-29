@@ -21,3 +21,4 @@ constructor(color, price, temperature, name, alcoholContent) {
 
 const duvel = new beer('blond', 3.50, "hot", "Duvel", 8.5);
 duvel.beverageInfos();
+console.log(duvel.alcoholContent);
