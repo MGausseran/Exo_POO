@@ -44,6 +44,7 @@ class beer extends beverage {
         $this->alcoholPercentage=$alcoholPercentage;
     }
 
+    //Les propriétés name et alcoholPercentage étant privates, il faut utiliser des fonctions dans la classe pour y accèder 
     function getName(): string{
         return $this->name;
     }
@@ -52,23 +53,29 @@ class beer extends beverage {
         return $this->alcoholPercentage;
     }
 
-    private function beerInfo() {
-        return "Hi i'm " .$beer.getName(). " and have an alcochol percentage of " .$beer.getAlcoholPercentage() . " and I have a " .$beer.getColor(). "color."
+    private function beerInfo():string {
+        return "Hi i'm " .$this->getName(). " and have an alcochol percentage of " .$this->getAlcoholPercentage() . " and I have a " .$this->getColor(). " color.\n";
+    }
+
+    function displayBeerInfo() :string {
+        return $this->beerInfo();
     }
 }
-//On crée une fonction qui va afficher un message contenant le taux d'alcool de l'objet sortant du constructeur beer
+//On crée une fonction qui va afficher un message contenant le taux d'alcool de l'objet absolu sortant du constructeur beer
 function getAlcoholPercentage(Beer $beer) :string {
     //Le taux d'alcool affiché sera celui de l'objet sortant du constructeur beer
     return "This drink's alcohol percentage is ".$beer->getAlcoholPercentage()."%\n";
 }
 
+
+
 $duvel = new beer('Duvel', 8.5, 'light', 3.5);
 echo getAlcoholPercentage($duvel);
+echo $duvel->displayBeerInfo();
 print_r($duvel);
 //On crée une fonction qui print un message, et prenant pour argument dans l'absolu une variable $beverage
-function getInfo($beverage) {
+function getInfo(Beverage $beverage) :string {
     //Les infos récupérées ici seront celles imprimées sur l'objet de classe beverage à sa sortie du constructeur.
-    //Si la propriété name n'est pas vide, alors le premier message s'affiche.{
     return $beverage->getName()." - This beverage is " .$beverage->getTemperature(). " and " .$beverage->getColor(). ". Its price is " .$beverage->getPrice(). " euros.\n";
     }
 
