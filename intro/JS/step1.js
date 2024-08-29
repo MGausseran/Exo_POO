@@ -6,10 +6,18 @@ class beverage {
     }
     
 beverageInfos() {
-    console.log(`This beverage has a ${this.color}, is served ${this.temperature} and cost ${this.price} euros.`)
+    console.log(`${this.name} - This beverage has a ${this.color}, is served ${this.temperature}, has an alcohol rate estimated of ${this.alcoholContent} and cost ${this.price} euros. `)
 
 }
 }
 
-const duvel = new beverage('blond', 3.50, "hot");
+class beer extends beverage {
+constructor(color, price, temperature, name, alcoholContent) {
+    super(color, price, temperature);
+    this.name=name;
+    this.alcoholContent=alcoholContent;
+}
+}
+
+const duvel = new beer('blond', 3.50, "hot", "Duvel", 8.5);
 duvel.beverageInfos();
