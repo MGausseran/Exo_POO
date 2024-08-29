@@ -19,11 +19,18 @@ class beverage {
         $this->temperature=$temperature;
     }
 
-    function getInfo()
+    function printInfo()
     {
-        echo "This beer price is " .$this->price;
+        echo "This beer price is {$this->price} euros.\n";
+    }
+
+    function changePrice($newPrice)
+    {
+$this->price = $newPrice;
     }
 }
 
-$duvel = new beverage('Duvel', 8.5, 'light', 3.5);
-echo $duvel->getInfo();
+$duvel = new beverage('blond', 3.5);
+$duvel->changePrice(6.0);
+$duvel->printInfo();
+print_r($duvel);
