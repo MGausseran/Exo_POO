@@ -8,13 +8,13 @@ class beverage {
         this.#temperature = temperature;
     }
 
-    #beverageInfos() {
-        console.log(`${this.name} - This beverage has a ${this.#color}, is served ${this.#temperature}, has an alcohol rate estimated of ${this.alcoholContent} and cost ${this.#price} euros. `)
-    }
-    getBeverageInfos(name,alcoholContent) {
-        this.#beverageInfos(name,alcoholContent);
+    #beverageInfos(name, alcoholContent) {
+        console.log(`${name} - This beverage has a ${this.#color} color, is served ${this.#temperature}, has an alcohol content of ${alcoholContent}% and costs ${this.#price} euros.`);
     }
 
+    getBeverageInfos(name, alcoholContent) {
+        this.#beverageInfos(name, alcoholContent);
+    }
 }
 
 class beer extends beverage {
@@ -25,13 +25,13 @@ class beer extends beverage {
         this.#name = name;
         this.#alcoholContent = alcoholContent;
     }
-    getBeerInfos() {
-        console.log(`${this.#name}, ${this.#alcoholContent}`);
-    }
 
+    // Méthode pour obtenir les informations complètes sur la bière
+    getBeerInfos() {
+        this.getBeverageInfos(this.#name, this.#alcoholContent);
+    }
 }
 
 const duvel = new beer('blond', 3.50, "hot", "Duvel", 8.5);
-duvel.getBeerInfos();
-duvel.getBeverageInfos();
-console.log(duvel.alcoholContent);
+duvel.getBeerInfos(); // Affiche "Duvel, 8.5% alcohol"
+duvel.getBeerInfos(); // Affiche "Duvel - This beverage has a blond color, is served hot, has an alcohol content of 8.5% and costs 3.5 euros."
