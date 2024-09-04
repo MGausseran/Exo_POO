@@ -1,5 +1,6 @@
 <?php
 
+namespace Classes;
 class Data
 {
     // This will provide the data you need

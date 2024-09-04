@@ -1,6 +1,6 @@
 <?php
 
-require 'Data.php';
+namespace Classes;
 class Word
 {
     private $word;
@@ -10,8 +10,24 @@ class Word
     {
         //On stocke dans $words le tableau de mots récupéré par l'appel de la méthode words() de la classe Data
         $words = Data::words();
-        $this->word = array_rand($words); //Array_rand sélectionne au hasard une valeur de clé dans l'array $words
+        echo"Le tableau de mot: ";
+        echo"<br>";
+        var_dump($words);
+        echo"<br>";
+        //Array_rand sélectionne au hasard une clé dans l'array $words
+        $this->word = array_rand($words); 
+        echo "Le mot choisi aléatoirement: ";
+        echo"<br>";
+        var_dump($this->word);
+        echo"<br>";
         $this->answer = $words[$this->word]; //On récupère la traduction en anglais
+        echo "La clé : ";
+        echo"<br>";
+        var_dump($words[$this->word]);
+        echo"<br>";
+        echo "La valeur (la traduction anglaise): ";
+        echo"<br>";
+        var_dump($this->answer);
     }
 
     public function getWord(): string //La propriété $word étant private, il faut avoir recours à un Getter pour pouvoir y accèder 
@@ -28,7 +44,10 @@ class Word
         //si l'écart levenshtein est égal ou inférieur à une lettre d'erreur, alors on accepte le mot
         if ($reference <= $margin) {
             return true;
-        };
+        }
+        else {
+            return false;
+        }
         
     }
 
@@ -37,8 +56,17 @@ class Word
         $answer = strtolower($this->answer);
         //Si la proposition est STRICTEMENT égale à la bonne réponse, ou qu'elle varie d'une lettre, alors la proposition est validée
         if ($proposal === $answer || $this->marginOfError($proposal, $answer)) {
+            
+            echo"<br>";
+            echo "La traduction est bonne";
+            echo"<br>";
             return true;
+    
         }
         return false;
     }
 }
+
+$test = new Word();
+$correct_test = $test->verify("fencing");
+var_dump($correct_test);

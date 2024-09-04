@@ -1,5 +1,6 @@
 <?php
 
+namespace Classes;
 class LanguageGame
 {
     private array $words;
@@ -10,6 +11,7 @@ class LanguageGame
         // They can be called without an instance of that class being created
         // and are used mostly for more *static* types of data (a fixed set of translations in this case)
         foreach (Data::words() as $frenchTranslation => $englishTranslation) {
+            //TEST - $words = new Word;
             // TODO: create instances of the Word class to be added to the words array
         }
     }
