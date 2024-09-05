@@ -1,0 +1,79 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #E6F7E6; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #A3D9A5; 
+    border-radius: 15px;
+    padding: 40px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Titres */
+h1 {
+    color: #2C5E2D; 
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+h2 {
+    color: #3A753C; 
+    margin-top: 0;
+}
+
+
+label {
+    color: #2C5E2D;
+    font-weight: bold;
+}
+
+button {
+    background-color: #6BBF59; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #59994A;
+}
+
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #A3D9A5;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #2C5E2D;
+    font-size: 1.1em;
+}
+
+.word-box {
+    background-color: #2C5E2D;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.5em;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
