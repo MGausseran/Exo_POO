@@ -21,6 +21,7 @@ class LanguageGame
             }
         }
 
+       
         if (isset($_POST['reset'])) {
             $this->resetGame();
         }
@@ -28,6 +29,7 @@ class LanguageGame
 
     private function initializeGame(): void
     {
+        
         $this->generateNewWord();
     }
 
@@ -42,7 +44,7 @@ class LanguageGame
     private function checkAnswer(string $answer): void
     {
         $player = unserialize($_SESSION['player']); 
-        $currentWord = unserialize($_SESSION['current_word']);
+        $currentWord = unserialize($_SESSION['current_word']); 
 
         if ($currentWord->verify($answer)) {
             $_SESSION['result_message'] = "Correct! The translation of '" . $currentWord->getWord() . "' is indeed '" . $answer . "'.";
@@ -54,7 +56,6 @@ class LanguageGame
 
         $_SESSION['player'] = serialize($player);
 
- 
         if ($player->getScore()['correct'] >= 10 || $player->getScore()['incorrect'] >= 10) {
             $_SESSION['game_over'] = true;
         } else {
